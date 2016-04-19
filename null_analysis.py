@@ -19,7 +19,7 @@ for user in users:
                 user_details[5] = "0"
 
     if user_details[4] != "all":
-        for i in range(0,6):
+        for i in range(0,5):
             output.write(user_details[i] + ',')
         output.write('\n')
 
@@ -27,8 +27,7 @@ for user in users:
         for country in country_list:
             for i in range(0,4):
                 output.write(user_details[i] + ',')
-            output.write(country)
-            output.write(","+user_details[5]+",")
+            output.write(country+",")
             output.write('\n')
 
 users.close()
