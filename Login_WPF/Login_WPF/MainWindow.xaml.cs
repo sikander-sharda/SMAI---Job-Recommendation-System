@@ -45,7 +45,8 @@ namespace Login_WPF
     public partial class MainWindow : Window
     {
         String str;
-        List<string> data = new List<string>();
+        List<Patient> display_data = new List<Patient>();
+        List<Patient_Record> main_data = new List<Patient_Record>();
         public MainWindow()
         {
 
@@ -55,48 +56,38 @@ namespace Login_WPF
         }
         private void readFile()
         {
-            string text = System.IO.File.ReadAllText(@"C:\Users\sikander.s1\Documents\Visual Studio 2013\Projects\Samsung_practice\file.txt");
-            string ln = "";
-            foreach(var ch in text)
+            string text2 = System.IO.File.ReadAllText(@"C:\Users\Corleone\Documents\SMAI---Job-Recommendation-System-master\Login_WPF\file.txt");
+           // string ln = "";
+            var temp_da = text2.Split('\n');
+            for (int i = 0; i < temp_da.Length - 1; i++)
             {
-                //System.Console.Write(ch);
-                if(ch=='\n')
-                {
-                    data.Add(ln);
-                    System.Console.Write(ln);
-                    ln = "";
-                }
-                else
-                {
-                    ln += ch;
-                }
+                var spdata = temp_da[i].Split('#');
+                Patient temp_p = new Patient();
+                temp_p.FName = spdata[1]; temp_p.ID = spdata[0]; temp_p.Mobile = spdata[4];
+                System.Console.WriteLine(temp_p.FName + " " + temp_p.ID + " " + temp_p.Mobile);
+                display_data.Add(temp_p);
+                Patient_Record temp_pt = new Patient_Record();
+                temp_pt.FName = spdata[1]; temp_pt.ID = spdata[0]; temp_pt.Mobile = spdata[4];
+                temp_pt.LName = spdata[2]; temp_pt.DOB = spdata[5]; temp_pt.Email = spdata[3];
+                main_data.Add(temp_pt);
             }
+            
         }
-        private int checkDuplicate(string str)
+        private int checkDuplicate(string firstname, string lastname, string email, string mobile)
         {
-            string temp ="";
-            foreach(string s in data)
+            foreach(var p in main_data)
             {
-                System.Console.WriteLine(s);
-                var spdata = s.Split('#');
-                temp = "";
-                for(int i = 1; i<spdata.Length-1; i++)
+                if((p.Email==email)&&(p.FName==firstname)&&(p.LName==lastname)&&(p.Mobile==mobile))
                 {
-                    if(i!=1)
-                    {
-                        temp += "#";
-                    }
-                    temp += spdata[i];
+                    return 0;
                 }
-                System.Console.WriteLine(temp);
-                if (temp == str)
-                    return 0; 
             }
+            //Patient temp_p = new Patient
             return 1;
         }
         private List<Patient> LoadData()
         {
-            List<Patient> patients = new List<Patient>();
+            /*List<Patient> patients = new List<Patient>();
             
                 foreach (string s in data)
                 {
@@ -111,10 +102,10 @@ namespace Login_WPF
 
                         });
 
-                }
+                }*/
            
             
-            return patients;
+            return display_data;
         }
         private void button2_Click(object sender, RoutedEventArgs e)
         {
@@ -134,7 +125,7 @@ namespace Login_WPF
         private void dataGrid1_SelectionChanged(object sender, EventArgs e)
         {
             Patient sel = (Patient)dataGrid1.SelectedItem;
-            string text = System.IO.File.ReadAllText(@"C:\Users\sikander.s1\Documents\Visual Studio 2013\Projects\Samsung_practice\file.txt");
+            string text = System.IO.File.ReadAllText(@"C:\Users\Corleone\Documents\SMAI---Job-Recommendation-System-master\Login_WPF\file.txt");
             //sel.ID
             textBoxFirstName.Text = "";
             textBoxLastName.Text = "";
@@ -193,21 +184,27 @@ namespace Login_WPF
                         str = firstname + "#" + lastname + "#" + email + "#" + mobile;
                         //string id = DateTime.Now.ToString();
 
-                        if (checkDuplicate(str) == 0)
+                        if (checkDuplicate(firstname, lastname, email, mobile) == 0)
                         {
                             errormessage.Text = "User already registered";
                         }
                         else
                         {
-                            string id = DateTime.Now.ToString();
-                            
+                            string id = DateTime.Now.ToString("ddMMyyyyHHmmss");
+                            Patient temp_p = new Patient();
+                            temp_p.ID = id; temp_p.Mobile = mobile; temp_p.FName = firstname;
+                            display_data.Add(temp_p);
+                            Patient_Record temp_pt = new Patient_Record();
+                            temp_pt.Mobile = mobile; temp_pt.LName = lastname; temp_pt.ID = id;
+                            temp_pt.FName = firstname; temp_pt.Email = email; temp_pt.DOB = dateP.ToString();
+                            main_data.Add(temp_pt);
                             str = id + "#" + firstname + "#" + lastname + "#" + email + "#" + mobile + "#" + dateP;
-                            data.Add(str);
-                            dataGrid1.ItemsSource = LoadData();
-                            File.AppendAllText(@"C:\Users\sikander.s1\Documents\Visual Studio 2013\Projects\Samsung_practice\file.txt", str + Environment.NewLine);
+                            //data.Add(str);
+                            dataGrid1.ItemsSource = LoadData(); 
+                            File.AppendAllText(@"C:\Users\Corleone\Documents\SMAI---Job-Recommendation-System-master\Login_WPF\file.txt", str + Environment.NewLine);
                             
                             errormessage.Text = "You have Registered successfully.";
-
+                           // dataGrid1.ItemsSource = display_data;
                             
                             Reset();
                         }
@@ -218,7 +215,21 @@ namespace Login_WPF
 
         private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            object item = dataGrid1.SelectedItem; //probably you find this object
+            string ij = (dataGrid1.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            System.Console.WriteLine(ij);
+            foreach(var item2 in main_data)
+            {
+                if(item2.ID==ij)
+                {
+                    textBoxFirstName.Text = item2.FName;
+                    textBoxLastName.Text = item2.LName;
+                    textBoxEmail.Text = item2.Email;
+                    //textBoxAddress.Text = item.;
+                    textBoxMobile.Text = item2.Mobile;
+                    dateP.Text = item2.DOB;
+                }
+            }
         }
     }
 }

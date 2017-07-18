@@ -11,3 +11,16 @@ C:\Users\sikander.s1\Documents\Visual Studio 2013\Projects\prog1\Login_WPF\Login
 C:\Users\sikander.s1\Documents\Visual Studio 2013\Projects\prog1\Login_WPF\Login_WPF\bin\Debug\Login_WPF.pdb
 C:\Users\sikander.s1\Documents\Visual Studio 2013\Projects\prog1\Login_WPF\Login_WPF\obj\Debug\Login_WPF.exe
 C:\Users\sikander.s1\Documents\Visual Studio 2013\Projects\prog1\Login_WPF\Login_WPF\obj\Debug\Login_WPF.pdb
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\bin\Debug\Login_WPF.exe.config
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\obj\Debug\Login_WPF.exe
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\obj\Debug\Login_WPF.pdb
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\bin\Debug\Login_WPF.exe
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\bin\Debug\Login_WPF.pdb
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\obj\Debug\Login_WPF.csprojResolveAssemblyReference.cache
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\obj\Debug\MainWindow.baml
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\obj\Debug\MainWindow.g.cs
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\obj\Debug\App.g.cs
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\obj\Debug\Login_WPF_MarkupCompile.cache
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\obj\Debug\Login_WPF.g.resources
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\obj\Debug\Login_WPF.Properties.Resources.resources
+C:\Users\Corleone\Documents\The Witcher 3\SMAI---Job-Recommendation-System-master\Login_WPF\Login_WPF\obj\Debug\Login_WPF.csproj.GenerateResource.Cache

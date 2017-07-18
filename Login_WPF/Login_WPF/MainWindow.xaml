@@ -33,7 +33,7 @@
             <Button Content="Reset" Height="23" HorizontalAlignment="Left" Margin="259,204,0,0" Name="button2" VerticalAlignment="Top" Width="70"  Click="button2_Click" />
             <Button Content="Delete" Height="23" HorizontalAlignment="Right" Margin="0,204,60,0" Name="button3" VerticalAlignment="Top" Width="70"  Click="button3_Click"/>
             <DataGrid Height="148" HorizontalAlignment="Left" Margin="183,260,0,0" 
-          Name="dataGrid1" VerticalAlignment="Center" Width="350"  RowHeight="30" ColumnWidth="100" GridLinesVisibility="Vertical" HeadersVisibility="All" SelectionChanged="dataGrid1_SelectionChanged"/>
+          Name="dataGrid1" VerticalAlignment="Center" Width="350"  RowHeight="30" ColumnWidth="100" GridLinesVisibility="Vertical" HeadersVisibility="All" SelectionChanged="dataGrid1_SelectionChanged" />
         </Grid>
     </Grid>
 </Window>
